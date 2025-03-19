@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "BookProject.API.Controllers.BookController",
-    "Method": "GetProjects",
+    "Method": "GetBooks",
     "RelativePath": "Book/AllBooks",
     "HttpMethod": "GET",
     "IsController": true,

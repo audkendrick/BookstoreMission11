@@ -12,19 +12,19 @@ namespace BookProject.API.Controllers
         public BookController(BookDbContext temp) => _bookContext = temp;
 
         [HttpGet("AllBooks")]
-        public IActionResult GetProjects(int pageSize = 5, int pageNum = 1)
+        public IActionResult GetBooks(int pageSize = 5, int pageNum = 1)
         {
             var something = _bookContext.Books
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
-            var totalNumProjects = _bookContext.Books.Count();
+            var totalNumBooks = _bookContext.Books.Count();
 
             var someObject = new
             {
                 Books = something,
-                TotalProjects = totalNumProjects
+                TotalBooks = totalNumBooks
             };
 
             return Ok(someObject);

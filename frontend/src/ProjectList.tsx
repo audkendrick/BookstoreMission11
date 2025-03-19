@@ -1,31 +1,33 @@
 import { useEffect, useState } from "react";
-import { Project } from "./types/Project";
+import { Book } from "./types/Book";
 
 function ProjectList() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
   const [pageNum, setPageNum] = useState<number>(1);
-  const [totalItems, setTotalItems] = useState<number>(0);
+  // const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
-    const fetchBowler = async () => {
+    const fetchBook = async () => {
       const response = await fetch(
         `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}`
       );
       const data = await response.json();
-      setProjects(data.projects);
-      setTotalItems(data.totalNumProjects);
-      setTotalPages(Math.ceil(totalItems / pageSize));
+      setBooks(data.books);
+      // setTotalItems(data.totalNumProjects);
+      setTotalPages(
+        data.totalBooks ? Math.ceil(data.totalBooks / pageSize) : 0
+      );
     };
-    fetchBowler();
-  }, [pageSize, pageNum, totalItems]);
+    fetchBook();
+  }, [pageSize, pageNum]);
 
   return (
     <>
       <h1> Book Store </h1>
       <br />
-      {projects.map((p) => (
+      {books.map((p) => (
         <div id="projectCard" className="card" key={p.bookID}>
           <h3 className="card-title">{p.title}</h3>
           <div className="card-body">
@@ -62,11 +64,10 @@ function ProjectList() {
           </div>
         </div>
       ))}
-
+      ;
       <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>
         Previous
       </button>
-
       {[...Array(totalPages)].map((_, i) => (
         <button
           key={i + 1}
@@ -76,14 +77,12 @@ function ProjectList() {
           {i + 1}
         </button>
       ))}
-
       <button
         disabled={pageNum === totalPages}
         onClick={() => setPageNum(pageNum + 1)}
       >
         Next
       </button>
-
       <br />
       <label>
         Results per page:

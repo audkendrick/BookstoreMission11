@@ -69,3 +69,4 @@ C:\Users\AudraK\OneDrive - Brigham Young University\Desktop\BookProject\backend\
 C:\Users\AudraK\OneDrive - Brigham Young University\Desktop\BookProject\backend\BookProject.API\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\AudraK\OneDrive - Brigham Young University\Desktop\BookProject\backend\BookProject.API\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\AudraK\OneDrive - Brigham Young University\Desktop\BookProject\backend\BookProject.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\AudraK\OneDrive - Brigham Young University\Desktop\BookProject\backend\BookProject.API\obj\Debug\net8.0\BookProject.API.sourcelink.json

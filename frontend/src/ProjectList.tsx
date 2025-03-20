@@ -7,11 +7,13 @@ function ProjectList() {
   const [pageNum, setPageNum] = useState<number>(1);
   // const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
+  const [sortBy, setSortBy] = useState<string>(""); // Default sort by title
+  const [sortOrder, setSortOrder] = useState<string>("asc"); // Track sort order
 
   useEffect(() => {
     const fetchBook = async () => {
       const response = await fetch(
-        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}`
+        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}&sortBy=${sortBy}&sortOrder=${sortOrder}`
       );
       const data = await response.json();
       setBooks(data.books);
@@ -21,12 +23,34 @@ function ProjectList() {
       );
     };
     fetchBook();
-  }, [pageSize, pageNum]);
+  }, [pageSize, pageNum, sortBy, sortOrder]);
+
+  // Handle Sort Button Click
+  const handleSort = () => {
+    if (sortBy === "title") {
+      // Toggle sort order between ascending and descending
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      // If not sorting, enable sorting by title in ascending order
+      setSortBy("title");
+      setSortOrder("asc");
+    }
+  };
 
   return (
     <>
       <h1> Book Store </h1>
       <br />
+
+      {/* Sort Button */}
+      <button onClick={handleSort}>
+        {sortBy
+          ? `Sort by Title (${sortOrder === "asc" ? "▲" : "▼"})`
+          : "Sort by Title"}
+      </button>
+
+      <br />
+
       {books.map((p) => (
         <div id="projectCard" className="card" key={p.bookID}>
           <h3 className="card-title">{p.title}</h3>
@@ -64,7 +88,7 @@ function ProjectList() {
           </div>
         </div>
       ))}
-      ;
+
       <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>
         Previous
       </button>

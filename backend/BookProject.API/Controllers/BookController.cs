@@ -1,4 +1,5 @@
-﻿using BookProject.API.Data;
+﻿using System.Globalization;
+using BookProject.API.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,9 +13,19 @@ namespace BookProject.API.Controllers
         public BookController(BookDbContext temp) => _bookContext = temp;
 
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks(int pageSize = 5, int pageNum = 1)
+        public IActionResult GetBooks([FromQuery] int pageSize = 5, [FromQuery] int pageNum = 1, [FromQuery] string? sortBy = null, [FromQuery] string? sortOrder = "asc") // Default to ascending)
         {
-            var something = _bookContext.Books
+            var books = _bookContext.Books.AsQueryable();
+
+            // Apply sorting **only** if the user selects it
+            if (!string.IsNullOrEmpty(sortBy) && sortBy.ToLower() == "title")
+            {
+                books = sortOrder?.ToLower() == "desc"
+                    ? books.OrderByDescending(b => b.Title)
+                    : books.OrderBy(b => b.Title);
+            }
+
+            var pagedBooks = books
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -23,7 +34,7 @@ namespace BookProject.API.Controllers
 
             var someObject = new
             {
-                Books = something,
+                Books = pagedBooks,
                 TotalBooks = totalNumBooks
             };
 

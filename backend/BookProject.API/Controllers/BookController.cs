@@ -2,10 +2,11 @@
 using BookProject.API.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BookProject.API.Controllers
 {
-    [Route("/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class BookController : ControllerBase
     {
@@ -13,7 +14,7 @@ namespace BookProject.API.Controllers
         public BookController(BookDbContext temp) => _bookContext = temp;
 
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks([FromQuery] int pageSize = 5, [FromQuery] int pageNum = 1, [FromQuery] string? sortBy = null, [FromQuery] string? sortOrder = "asc") // Default to ascending)
+        public IActionResult GetBooks([FromQuery] int pageSize = 5, [FromQuery] int pageNum = 1, [FromQuery] string? sortBy = null, [FromQuery] string? sortOrder = "asc", [FromQuery] List<string>? bookTypes = null) // Default to ascending)
         {
             var books = _bookContext.Books.AsQueryable();
 
@@ -25,12 +26,21 @@ namespace BookProject.API.Controllers
                     : books.OrderBy(b => b.Title);
             }
 
+            
+
+            if (bookTypes != null && bookTypes.Any())
+            {
+                books = books.Where(p => bookTypes.Contains(p.Category));
+            }
+
+            var totalNumBooks = books.Count();
+
             var pagedBooks = books
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
-            var totalNumBooks = _bookContext.Books.Count();
+            
 
             var someObject = new
             {
@@ -41,11 +51,30 @@ namespace BookProject.API.Controllers
             return Ok(someObject);
         }
 
-        //[HttpGet("FunctionalProjects")]
-        //public IEnumerable<Project> GetFunctionalProjects()
-        //{
-        //    var something = _bookContext.Projects.Where(p => p.ProjectFunctionalityStatus == "Functional").ToList();
-        //    return something;
-        //}
+        [HttpGet("GetProjectTypes")]
+        public IActionResult GetProjectTypes()
+        {
+            var bookTypes = _bookContext.Books
+                .Select(p => p.Category)
+                .Distinct()
+                .ToList();
+
+            return Ok(bookTypes);
+        }
+
+        [HttpGet("GetBook/{bookID}")]
+        public IActionResult GetBook(int bookID)
+        {
+            var book = _bookContext.Books.FirstOrDefault(b => b.BookID == bookID);
+
+            if (book == null)
+            {
+                return NotFound(); // Book not found
+            }
+
+            return Ok(new { title = book.Title, price = book.Price });
+        }
+
+
     }
 }

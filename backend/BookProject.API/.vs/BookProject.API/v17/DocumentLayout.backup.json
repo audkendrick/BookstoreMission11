@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,25 +46,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Data\\BookDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\BookDbContext.cs",
-              "ToolTip": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Data\\BookDbContext.cs",
-              "RelativeToolTip": "Data\\BookDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T21:33:10.65Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAawC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T21:27:28.056Z",
               "EditorCaption": ""
@@ -77,10 +65,22 @@
               "RelativeDocumentMoniker": "Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Controllers\\BookController.cs",
               "RelativeToolTip": "Controllers\\BookController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAkwCcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAgwEYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T21:06:29.68Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Data\\BookDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\BookDbContext.cs",
+              "ToolTip": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Data\\BookDbContext.cs",
+              "RelativeToolTip": "Data\\BookDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T21:33:10.65Z"
             },
             {
               "$type": "Document",

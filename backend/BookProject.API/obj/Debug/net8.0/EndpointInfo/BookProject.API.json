@@ -53,6 +53,14 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "name": "maxPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
           }
         ],
         "responses": {

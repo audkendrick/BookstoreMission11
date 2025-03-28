@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartSummary = () => {
   const navigate = useNavigate();
@@ -17,15 +18,20 @@ const CartSummary = () => {
         borderRadius: "8px",
         cursor: "pointer",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column", // Ensures content is stacked vertically
         boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
         fontSize: "16px",
       }}
       className="cart-summary"
     >
+      {/* Cart Summary Section */}
       <h3>Cart Summary</h3>
-      <p>Items: {cart.length}</p>
-      <p>Total: ${totalPrice.toFixed(2)}</p>
+      <div style={{ marginBottom: "2px" }}>
+        <p>Items: {cart.length}</p>
+      </div>
+      <div style={{ marginBottom: "1px" }}>
+        <p>Total: ${totalPrice.toFixed(2)}</p>
+      </div>
       <button onClick={() => navigate("/cart")}> 🛒</button>
     </div>
   );

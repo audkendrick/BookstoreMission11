@@ -1,10 +1,44 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { CartItem } from "../types/Cartitem";
+import { ToastContainer, toast } from "react-toastify"; // Import Toastify
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
 function CartPage() {
   const navigate = useNavigate();
   const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
+
+  // Function to handle "Buy Books" button click
+  const handleBuyBooks = () => {
+    if (cart.length === 0) {
+      toast.error("Your cart is empty! Add some books first.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } else {
+      toast.success(
+        "🎉 Congratulations! You've successfully purchased your books!",
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        }
+      );
+
+      // Optionally clear the cart after purchase (if implemented in context)
+      // cart.clearCart();
+
+      // Navigate to a confirmation or home page after purchase
+      setTimeout(() => navigate("/projects"), 3000);
+    }
+  };
 
   return (
     <div>
@@ -56,8 +90,12 @@ function CartPage() {
         </table>
       )}
       <h3>Total: ${totalPrice.toFixed(2)}</h3>
-      <button onClick={() => navigate("/checkout")}>Checkout</button>
       <button onClick={() => navigate("/projects")}>Continue Shopping</button>
+      {/* Buy Books Button */}
+      <button onClick={handleBuyBooks}>Buy Books</button>
+
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 }

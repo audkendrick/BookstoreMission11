@@ -14,7 +14,7 @@ namespace BookProject.API.Controllers
         public BookController(BookDbContext temp) => _bookContext = temp;
 
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks([FromQuery] int pageSize = 5, [FromQuery] int pageNum = 1, [FromQuery] string? sortBy = null, [FromQuery] string? sortOrder = "asc", [FromQuery] List<string>? bookTypes = null) // Default to ascending)
+        public IActionResult GetBooks([FromQuery] int pageSize = 5, [FromQuery] int pageNum = 1, [FromQuery] string? sortBy = null, [FromQuery] string? sortOrder = "asc", [FromQuery] List<string>? bookTypes = null, [FromQuery] decimal? maxPrice = null) // Default to ascending)
         {
             var books = _bookContext.Books.AsQueryable();
 
@@ -31,6 +31,12 @@ namespace BookProject.API.Controllers
             if (bookTypes != null && bookTypes.Any())
             {
                 books = books.Where(p => bookTypes.Contains(p.Category));
+            }
+
+            // **Filter by price if maxPrice is provided**
+            if (maxPrice.HasValue)
+            {
+                books = books.Where(b => b.Price <= maxPrice.Value);
             }
 
             var totalNumBooks = books.Count();

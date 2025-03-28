@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
 import { useNavigate } from "react-router-dom";
 
-function ProjectList({ selectedCategories }: { selectedCategories: string[] }) {
+function ProjectList({
+  selectedCategories,
+  maxPrice,
+}: {
+  selectedCategories: string[];
+  maxPrice: number;
+}) {
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -19,17 +25,23 @@ function ProjectList({ selectedCategories }: { selectedCategories: string[] }) {
         .join("&");
 
       const response = await fetch(
-        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}`
+        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}&maxPrice=${maxPrice}`
       );
       const data = await response.json();
-      setBooks(data.books);
+
+      // Filter books based on maxPrice before setting state
+      const filteredBooks = data.books.filter(
+        (book: Book) => book.price <= maxPrice
+      );
+      setBooks(filteredBooks);
+
       // setTotalItems(data.totalNumProjects);
       setTotalPages(
         data.totalBooks ? Math.ceil(data.totalBooks / pageSize) : 0
       );
     };
     fetchBook();
-  }, [pageSize, pageNum, sortBy, sortOrder, selectedCategories]);
+  }, [pageSize, pageNum, sortBy, sortOrder, selectedCategories, maxPrice]);
 
   // Handle Sort Button Click
   const handleSort = () => {

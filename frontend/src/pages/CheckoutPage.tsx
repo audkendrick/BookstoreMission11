@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useState, useEffect } from "react";
 import { CartItem } from "../types/Cartitem";
-import WelcomeBand from "../components/WelcomeBanner";
 
 function CheckoutPage() {
   const navigate = useNavigate();
@@ -57,7 +56,6 @@ function CheckoutPage() {
 
   return (
     <>
-      <WelcomeBand />
       <h2>Add {title} to Cart</h2>
 
       {/* Display price, with a fallback message if it's not fetched yet */}

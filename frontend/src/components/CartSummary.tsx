@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 const CartSummary = () => {
   const navigate = useNavigate();
   const { cart, totalPrice } = useCart();
-  const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+  // const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div

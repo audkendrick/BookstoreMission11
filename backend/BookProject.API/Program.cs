@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         configurePolicy: policy =>
         {
-            policy.WithOrigins("http://localhost:3001", "https://bookprojectkendrickbackend.azurewebsites.net/Book")
+            policy.WithOrigins("http://localhost:3001", "https://wonderful-river-0d68d791e.6.azurestaticapps.net")
                 .AllowCredentials()
                 .AllowAnyHeader()
                 .AllowAnyMethod();

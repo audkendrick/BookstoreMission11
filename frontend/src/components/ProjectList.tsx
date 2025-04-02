@@ -26,7 +26,7 @@ function ProjectList({
         .join("&");
 
       const response = await fetch(
-        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}&maxPrice=${maxPrice}`
+        `https://bookprojectkendrickbackend.azurewebsites.net/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}&maxPrice=${maxPrice}`
       );
       const data = await response.json();
 

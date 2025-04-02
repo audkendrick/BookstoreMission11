@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Net;
 using BookProject.API.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -81,6 +82,48 @@ namespace BookProject.API.Controllers
             return Ok(new { title = book.Title, price = book.Price });
         }
 
+        [HttpPost("AddBook")]
+        public IActionResult AddProject([FromBody] Book newBook)
+        {
+            _bookContext.Books.Add(newBook);
+            _bookContext.SaveChanges();
+            return Ok(newBook);
+        }
 
+        [HttpPut("UpdateBook/{bookID}")]
+        public IActionResult UpdateBook(int bookID, [FromBody] Book UpdatedBook)
+        {
+            var exisitingBook = _bookContext.Books.Find(bookID);
+
+            exisitingBook.Title = UpdatedBook.Title;
+            exisitingBook.Author = UpdatedBook.Author;
+            exisitingBook.Publisher = UpdatedBook.Publisher;
+            exisitingBook.ISBN = UpdatedBook.ISBN;
+            exisitingBook.Classification = UpdatedBook.Classification;
+            exisitingBook.Category = UpdatedBook.Category;
+            exisitingBook.PageCount = UpdatedBook.PageCount;
+            exisitingBook.Price = UpdatedBook.Price;
+
+            _bookContext.Books.Update(exisitingBook);
+            _bookContext.SaveChanges();
+
+            return Ok(exisitingBook);
+        }
+
+        [HttpDelete("DeleteBook/{bookID}")]
+        public IActionResult DeleteProject(int bookID)
+        {
+            var book = _bookContext.Books.Find(bookID);
+
+            if (book == null)
+            {
+                return NotFound(new { message = "Book not found" });
+            }
+
+            _bookContext.Books.Remove(book);
+            _bookContext.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

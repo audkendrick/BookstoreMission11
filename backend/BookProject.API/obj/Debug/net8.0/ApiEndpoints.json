@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "BookProject.API.Controllers.BookController",
+    "Method": "AddProject",
+    "RelativePath": "Book/AddBook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newBook",
+        "Type": "BookProject.API.Data.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookProject.API.Controllers.BookController",
     "Method": "GetBooks",
     "RelativePath": "Book/AllBooks",
     "HttpMethod": "GET",
@@ -42,6 +58,22 @@
   },
   {
     "ContainingType": "BookProject.API.Controllers.BookController",
+    "Method": "DeleteProject",
+    "RelativePath": "Book/DeleteBook/{bookID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookProject.API.Controllers.BookController",
     "Method": "GetBook",
     "RelativePath": "Book/GetBook/{bookID}",
     "HttpMethod": "GET",
@@ -64,6 +96,27 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookProject.API.Controllers.BookController",
+    "Method": "UpdateBook",
+    "RelativePath": "Book/UpdateBook/{bookID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UpdatedBook",
+        "Type": "BookProject.API.Data.Book",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

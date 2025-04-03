@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|c:\\users\\audrak\\onedrive - brigham young university\\desktop\\bookproject\\backend\\bookproject.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|c:\\users\\audrak\\onedrive - brigham young university\\desktop\\bookproject\\backend\\bookproject.api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|c:\\users\\audrak\\onedrive - brigham young university\\desktop\\bookproject\\backend\\bookproject.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0514636C-7A63-4206-994C-A91ABE69BBAB}|BookProject.API.csproj|c:\\users\\audrak\\onedrive - brigham young university\\desktop\\bookproject\\backend\\bookproject.api\\data\\bookdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,28 +46,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T21:27:28.056Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\AudraK\\OneDrive - Brigham Young University\\Desktop\\BookProject\\backend\\BookProject.API\\Controllers\\BookController.cs",
               "RelativeToolTip": "Controllers\\BookController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T21:06:29.68Z"
+              "WhenOpened": "2025-03-19T21:06:29.68Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

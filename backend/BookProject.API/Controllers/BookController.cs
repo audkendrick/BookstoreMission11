@@ -126,4 +126,12 @@ namespace BookProject.API.Controllers
             return NoContent();
         }
     }
+    public class HealthController : ControllerBase
+    {
+        [HttpGet("ping")]
+        public IActionResult Ping()
+        {
+            return Ok(new { message = "API is alive and kickin'" });
+        }
+    }
 }

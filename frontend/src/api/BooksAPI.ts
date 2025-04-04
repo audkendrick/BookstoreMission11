@@ -18,7 +18,7 @@ export const fetchBooks = async (
       .join("&");
 
     const response = await fetch(
-      `${API_URL}/GetBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}`
+      `${API_URL}/GetProjectTypes?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}`
       // {
       //   credentials: "include",
       // }

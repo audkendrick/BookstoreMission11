@@ -19,7 +19,7 @@ export const fetchBooks = async (
 
     console.log(categoryParams);
     const response = await fetch(
-      `${API_URL}/GetProjectTypes?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}`
+      `${API_URL}/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}`
       // {
       //   credentials: "include",
       // }

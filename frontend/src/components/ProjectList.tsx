@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../components/Pagination";
-import { fetchBooks } from "../api/BooksAPI";
+// import { fetchBooks } from "../api/BooksAPI";
 
 function ProjectList({
   selectedCategories,
@@ -20,7 +20,7 @@ function ProjectList({
   const [sortOrder, setSortOrder] = useState<string>("asc"); // Track sort order
   const navigate = useNavigate();
 
-  fetchBooks;
+  // fetchBooks;
   useEffect(() => {
     const fetchBooks = async () => {
       const categoryParams = selectedCategories
@@ -28,8 +28,11 @@ function ProjectList({
         .join("&");
 
       const response = await fetch(
-        `https://bookprojectkendrickbackend.azurewebsites.net/Book/GetProjectTypes?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}&maxPrice=${maxPrice}`
+        `https://bookprojectkendrickbackend.azurewebsites.net/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}&maxPrice=${maxPrice}`
       );
+      // Log the final URL to make sure the values are interpolated correctly
+      console.log(response);
+
       const data = await response.json();
       console.log(JSON.stringify(data));
 

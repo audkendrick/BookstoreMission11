@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import { fetchBooks } from "../api/BooksAPI";
 
 function ProjectList({
   selectedCategories,
@@ -19,6 +20,7 @@ function ProjectList({
   const [sortOrder, setSortOrder] = useState<string>("asc"); // Track sort order
   const navigate = useNavigate();
 
+  fetchBooks;
   useEffect(() => {
     const fetchBooks = async () => {
       const categoryParams = selectedCategories
@@ -29,6 +31,7 @@ function ProjectList({
         `https://bookprojectkendrickbackend.azurewebsites.net/Book/GetProjectTypes?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}&sortBy=${sortBy}&sortOrder=${sortOrder}&maxPrice=${maxPrice}`
       );
       const data = await response.json();
+      console.log(JSON.stringify(data));
 
       // Filter books based on maxPrice before setting state
       const filteredBooks = data.books.filter(

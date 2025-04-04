@@ -20,7 +20,7 @@ function ProjectList({
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBook = async () => {
+    const fetchBooks = async () => {
       const categoryParams = selectedCategories
         .map((cat) => `bookTypes=${encodeURIComponent(cat)}`)
         .join("&");
@@ -41,7 +41,7 @@ function ProjectList({
         data.totalBooks ? Math.ceil(data.totalBooks / pageSize) : 0
       );
     };
-    fetchBook();
+    fetchBooks();
   }, [pageSize, pageNum, sortBy, sortOrder, selectedCategories, maxPrice]);
 
   // Handle Sort Button Click

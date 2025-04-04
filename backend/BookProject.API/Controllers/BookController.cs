@@ -61,10 +61,13 @@ namespace BookProject.API.Controllers
         [HttpGet("GetProjectTypes")]
         public IActionResult GetProjectTypes()
         {
+            // Console.WriteLine("Testing");
+
             var bookTypes = _bookContext.Books
                 .Select(p => p.Category)
                 .Distinct()
                 .ToList();
+            // Console.WriteLine(bookTypes.Count);
 
             return Ok(bookTypes);
         }

@@ -17,12 +17,14 @@ export const fetchBooks = async (
       .map((cat) => `bookTypes=${encodeURIComponent(cat)}`)
       .join("&");
 
+    console.log(categoryParams);
     const response = await fetch(
       `${API_URL}/GetProjectTypes?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ""}`
       // {
       //   credentials: "include",
       // }
     );
+    console.log("Finished??", response.status);
 
     if (!response.ok) {
       throw new Error("Failed to fetch books");
